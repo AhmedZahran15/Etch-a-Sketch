@@ -38,6 +38,7 @@ randomBtn.onclick = () => setCurrentMode("random");
 eraseBtn.onclick = () => setCurrentMode("eraser");
 clearBtn.onclick = () => {
   clearGrid();
+  renderGrid();
   if (currentMode === "eraser") setCurrentMode("color");
 };
 
