@@ -58,7 +58,9 @@ function renderGrid() {
     sketch.appendChild(gridElement);
   }
 }
-
+sketch.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+ });
 function changeColor(e) {
   if (e.type === "mouseover" && !mouseDown) return;
   if (currentMode === "random") {
