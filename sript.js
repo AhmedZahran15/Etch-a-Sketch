@@ -1,4 +1,4 @@
-const DEFAULT_COLOR = '#fefefe';
+const DEFAULT_COLOR = '#3071a9';
 const DEFAULT_MODE = 'color';
 const DEFAULT_SIZE = 16;
 
@@ -22,7 +22,13 @@ function setCurrentColor(newColor) {
   
 const sketch= document.querySelector('.sketch-area');
 const size_label=document.querySelector('#sketch_size');
-const edge_size=document.querySelector("#edge_size")
+const edge_size=document.querySelector('#edge_size')
+const colorPicker=document.querySelector('#colorPicker');
+
+colorPicker.addEventListener('input',(e)=>{
+    currentColor=e.target.value;
+});
+
 edge_size.addEventListener("input",()=>{
     size_label.textContent=`${edge_size.value} x ${edge_size.value}`;
     currentSize=edge_size.value;
@@ -44,11 +50,11 @@ function renderGrid(){
         gridElement.addEventListener('mousedown',changeColor);
         gridElement.addEventListener('mouseover',changeColor);
         sketch.appendChild(gridElement);
-        console.log(sketch);
     }
 }
 
 function changeColor(e){
+    console.log(currentMode,currentColor,currentSize);
     if(e.type==='mouseover' && !mouseDown)return;
     if(currentMode ==='random'){
         let randomR=Math.floor(Math.random()*257);
@@ -59,7 +65,6 @@ function changeColor(e){
     else if(currentMode==='color')
         e.target.style.backgroundColor=currentColor;
     else if(currentMode==='eraser')
-        e.target.style.backgroundColor='#3071a9';
         e.target.style.backgroundColor='#3071a9';
 }
 
