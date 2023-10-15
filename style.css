@@ -4,26 +4,19 @@
     box-sizing: border-box;
 }
 body{
+    gap: 15px;
     background-color:#ededed;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-}
-@media (max-width: 850px){
-    .container{
-        flex-direction: column-reverse;
-    }
 }
 .container{
     display: flex;
     border: 2px solid black;
-    width: 56vw;
-    min-height: 77vh;
 }
 header{
+    margin-top: 10px;
     font-family: Sans-serif;
     font-size: 70px;
     font-weight: bolder;
@@ -32,18 +25,31 @@ header{
     width: 550px;
     height: 550px;
     background-color:#fefefe;
-    padding: 2.5vw;
     border: 2px solid black;
 }
 .tools{
-    padding: 2vw;
-    font-size: 20px;
-    min-width: 20vw;
-    height: 100%;
+    padding: 30px;
+    min-width: 300px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 2px solid black;
+}
+@media (max-width: 900px){
+  .container{
+      flex-direction: column-reverse;
+  }
+  .sketch-area{
+    width: 550px;
+    height: 550px;
+  }
+}
+@media (max-width: 650px){
+  .sketch-area{
+    width: 400px;
+    height: 400px;
+  }
 }
 footer{
     font-size: 20px;
