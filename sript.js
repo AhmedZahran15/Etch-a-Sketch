@@ -19,10 +19,6 @@ let mouseDown = false;
 document.addEventListener("mousedown", () => (mouseDown = true));
 document.addEventListener("mouseup", () => (mouseDown = false));
 
-function setCurrentColor(newColor) {
-  currentColor = newColor;
-}
-
 function setCurrentMode(newMode) {
   activateButton(newMode);
   currentMode = newMode;
@@ -40,7 +36,11 @@ edge_size.addEventListener("input", () => {
 colorBtn.onclick = () => setCurrentMode("color");
 randomBtn.onclick = () => setCurrentMode("random");
 eraseBtn.onclick = () => setCurrentMode("eraser");
-clearBtn.onclick = () => clearGrid();
+clearBtn.onclick = () => {
+    clearGrid();
+    if(currentMode==="eraser")
+    setCurrentMode("color");
+}
 
 function reRenderGrid() {
   clearGrid();
@@ -60,7 +60,6 @@ function renderGrid() {
 }
 
 function changeColor(e) {
-  console.log(currentMode, currentColor, currentSize);
   if (e.type === "mouseover" && !mouseDown) return;
   if (currentMode === "random") {
     let randomR = Math.floor(Math.random() * 257);
